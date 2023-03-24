@@ -37,3 +37,11 @@ fromText.addEventListener("keyup", ()=>{
   }
 });
 
+translateBtn.addEventListener("click", ()=>{
+  // js declaring multiple variables syntax
+  let text = fromText.value.trim(),
+    translateFrom = selectTag[0].value,
+    translateTo = selectTag[1].value;
+  if(!text) return; // do nothing when input is empty
+  toText.setAttribute("placeholder", "Translating...");
+});
