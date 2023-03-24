@@ -44,4 +44,15 @@ translateBtn.addEventListener("click", ()=>{
     translateTo = selectTag[1].value;
   if(!text) return; // do nothing when input is empty
   toText.setAttribute("placeholder", "Translating...");
+  // Adding Api
+  let APIURL = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
+  fetch(APIURL)
+  .then(response => response.json())
+  .then(response => {
+    console.log(response);
+    toText.value = response.responseData.translatedText;
+  });
+  
 });
+
+
