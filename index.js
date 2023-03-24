@@ -1,6 +1,6 @@
 const fromText = document.querySelector(".from-text");
 const toText = document.querySelector(".to-text");
-const exchageIcon = document.querySelector(".exchange");
+const exchangeIcon = document.querySelector(".exchange");
 const selectTag = document.querySelectorAll("select");
 const icons = document.querySelectorAll(".row i");
 const translateBtn = document.querySelector("button");
@@ -20,4 +20,13 @@ selectTag.forEach((tag, id) => {
     }
 });
 
+// Function to change countries when exchanged icon clicked
+exchangeIcon.addEventListener("click", ()=> {
+  let tempText = fromText.value;
+  fromText.value = toText.value;
+  toText.value = tempText;
+  let tempLang = selectTag[0].value;
+  selectTag[0].value = selectTag[1].value;
+  selectTag[1].value = tempLang;
+});
 
